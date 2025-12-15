@@ -1,90 +1,81 @@
 import streamlit as st
-
-def get_recommendations(age_group, interest):
-    """
-    Simple dummy recommendation logic.
-    In a real app, this would query a database or an LLM.
-    """
-    recommendations = {
-        "3-5": {
-            "Science": [
-                "Baking Soda Volcano: Mix baking soda and vinegar for a fizzy explosion.",
-                "Nature Walk: Collect leaves and stones to learn about shapes and textures.",
-                "Sink or Float: Test different household items in a bowl of water."
-            ],
-            "Arts": [
-                "Finger Painting: Use non-toxic paints to create messy art.",
-                "Playdough Sculpting: Build animals or shapes with playdough.",
-                "Macaroni Art: Glue dry pasta onto paper to make pictures."
-            ],
-            "Reading": [
-                "The Very Hungry Caterpillar by Eric Carle",
-                "Goodnight Moon by Margaret Wise Brown",
-                "Where the Wild Things Are by Maurice Sendak"
-            ]
-        },
-        "6-8": {
-            "Science": [
-                "Build a Solar Oven: Use a pizza box and foil to melt s'mores.",
-                "Grow Crystals: Use salt or sugar water to grow crystals on a string.",
-                "Magnet Hunt: Use a magnet to find magnetic items around the house."
-            ],
-            "Arts": [
-                "Origami: Learn to fold paper cranes and frogs.",
-                "Recycled Robots: Build robots out of old cardboard boxes and bottles.",
-                "Comic Book Creation: Draw and write a short comic story."
-            ],
-            "Reading": [
-                "Charlotte's Web by E.B. White",
-                "Magic Tree House series by Mary Pope Osborne",
-                "Matilda by Roald Dahl"
-            ]
-        },
-        "9-12": {
-            "Science": [
-                "Lemon Battery: create electricity using a lemon.",
-                "Coding: Start with Scratch or Python for beginners.",
-                "Stargazing: Identify constellations and planets."
-            ],
-            "Arts": [
-                "Stop Motion Animation: Create a movie using a phone and toys.",
-                "Photography: Learn about angles and lighting.",
-                "Sewing: Stitch a simple pillow or bag."
-            ],
-            "Reading": [
-                "Harry Potter series by J.K. Rowling",
-                "Percy Jackson & The Olympians by Rick Riordan",
-                "Wonder by R.J. Palacio"
-            ]
-        }
-    }
-    
-    return recommendations.get(age_group, {}).get(interest, ["Try exploring the library or a local park!"])
+from streamlit_calendar import calendar
+from datetime import datetime
+from activities import get_activity_for_date
 
 def main():
-    st.set_page_config(page_title="Kids Activity Recommender", page_icon="🎈")
+    st.set_page_config(page_title="Toddler Activity Calendar", page_icon="🎈")
     
-    st.title("🎈 Kids Activity Helper")
-    st.write("Find the perfect activity, book, or experiment for your child!")
+    st.title("🎈 Toddler Activity Calendar")
+    st.write("Click on a date to discover a fun activity for your 3-5 year old!")
     
     # Sidebar inputs
-    st.sidebar.header("Your Child's Info")
-    age_group = st.sidebar.selectbox(
-        "Select Age Group",
-        ("3-5", "6-8", "9-12")
-    )
+    st.sidebar.header("Settings")
+    st.sidebar.info("Focusing on Toddler Group (3-5 years)")
+
+    if "selected_activity" not in st.session_state:
+        st.session_state.selected_activity = None
+    if "selected_date" not in st.session_state:
+        st.session_state.selected_date = None
+
+    # Calendar options
+    calendar_options = {
+        "editable": False,
+        "selectable": True,
+        "headerToolbar": {
+            "left": "today prev,next",
+            "center": "title",
+            "right": "dayGridMonth",
+        },
+        "initialView": "dayGridMonth",
+    }
     
-    interest = st.sidebar.selectbox(
-        "Select Interest",
-        ("Science", "Arts", "Reading")
-    )
+    custom_css = """
+        .fc-event-past {
+            opacity: 0.8;
+        }
+        .fc-event-time {
+            font-style: italic;
+        }
+        .fc-event-title {
+            font-weight: 700;
+        }
+        .fc-toolbar-title {
+            font-size: 2rem;
+        }
+    """
+
+    cal = calendar(events=[], options=calendar_options, custom_css=custom_css)
     
-    if st.button("Get Ideas!"):
-        st.subheader(f"Suggestions for {interest} (Age {age_group})")
-        ideas = get_recommendations(age_group, interest)
+    if cal.get("callback") == "dateClick":
+        date_str = cal["dateClick"]["date"]
+        if "T" in date_str:
+            date_str = date_str.split("T")[0]
+
+        date_obj = datetime.strptime(date_str, "%Y-%m-%d")
+        day = date_obj.day
         
-        for idea in ideas:
-            st.info(idea)
+        st.session_state.selected_activity = get_activity_for_date(day)
+        st.session_state.selected_date = date_str
+
+    elif cal.get("callback") == "select":
+        start_str = cal["select"]["start"]
+        try:
+            date_str = start_str[:10]
+            date_obj = datetime.strptime(date_str, "%Y-%m-%d")
+            day = date_obj.day
+
+            st.session_state.selected_activity = get_activity_for_date(day)
+            st.session_state.selected_date = date_str
+        except Exception as e:
+            st.error(f"Could not load activity: {e}")
+
+    # Display the activity if one is selected
+    if st.session_state.selected_activity and st.session_state.selected_date:
+        st.markdown("---")
+        st.header(f"📅 Activity for {st.session_state.selected_date}")
+        st.subheader(f"🎨 {st.session_state.selected_activity['title']}")
+        st.write(st.session_state.selected_activity['description'])
 
     st.markdown("---")
     st.write("Built with Streamlit & Python 🐍")
