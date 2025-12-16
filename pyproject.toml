@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "playwright>=1.57.0",
     "streamlit>=1.52.1",
     "streamlit-calendar>=1.4.0",
 ]

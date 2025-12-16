@@ -1,133 +1,307 @@
-ACTIVITIES = [
-    {
-        "title": "Sensory Rice Bin",
-        "description": "Fill a plastic bin with rice and hide small toys in it. Give your child spoons, cups, and funnels to dig, pour, and find the hidden treasures. This helps develop fine motor skills and sensory processing."
-    },
-    {
-        "title": "Nature Scavenger Hunt",
-        "description": "Go for a walk in a park or your backyard. Create a simple list of things to find: a brown leaf, a smooth rock, a yellow flower, a stick shaped like a Y. This encourages observation and connection with nature."
-    },
-    {
-        "title": "DIY Obstacle Course",
-        "description": "Use pillows, chairs, and blankets to create a safe indoor obstacle course. Crawl under the 'tunnel' (chairs with a blanket), jump over the 'river' (a blue towel), and balance on the 'bridge' (a line of tape on the floor)."
-    },
-    {
-        "title": "Pasta Threading",
-        "description": "Give your child some dry penne or rigatoni pasta and a piece of yarn or a pipe cleaner. Show them how to thread the pasta onto the string to make a necklace or a snake. Great for hand-eye coordination."
-    },
-    {
-        "title": "Baking Soda Volcano",
-        "description": "Place a cup on a tray. Fill it halfway with baking soda. Add a few drops of food coloring. Slowly pour in vinegar and watch the fizzy eruption! Talk about the reaction between the two ingredients."
-    },
-    {
-        "title": "Shadow Puppets",
-        "description": "Turn off the lights and use a flashlight to make shadow puppets on the wall. Experiment with moving your hands closer and further from the light to change the size of the shadows."
-    },
-    {
-        "title": "Water Painting",
-        "description": "On a sunny day, give your child a bucket of water and a clean paintbrush. Let them 'paint' the sidewalk, fences, or bricks. Watch as the water evaporates and the drawings disappear."
-    },
-    {
-        "title": "Cardboard Box Car",
-        "description": "Transform a large cardboard box into a car. Draw wheels, a steering wheel, and lights. Let your child decorate it with markers or stickers. Then, go for a pretend drive!"
-    },
-    {
-        "title": "Balloon Tennis",
-        "description": "Tape a paper plate to a ruler or stick to make a racket. Blow up a balloon and try to keep it off the ground by hitting it with the rackets. A fun way to burn energy indoors."
-    },
-    {
-        "title": "Shape Hunt",
-        "description": "Pick a shape (e.g., circle) and walk around the house finding everything that is that shape. The clock, a plate, a wheel, a button. Count how many you find."
-    },
-    {
-        "title": "Ice Excavation",
-        "description": "Freeze small toys (like plastic dinosaurs or cars) in a container of water. Once frozen, give your child warm water, salt, and tools (spoons, droppers) to melt the ice and rescue the toys."
-    },
-    {
-        "title": "Paper Plate Masks",
-        "description": "Cut eye holes in a paper plate. Let your child decorate it to look like a lion, a superhero, or a monster using crayons, yarn, and construction paper bits."
-    },
-    {
-        "title": "Sorting Station",
-        "description": "Mix together different types of pasta, buttons, or colored pompoms in a bowl. Provide separate cups (muffin tins work great) and ask your child to sort them by color, shape, or size."
-    },
-    {
-        "title": "Mirror Play",
-        "description": "Sit in front of a mirror with your child and make funny faces. Talk about emotions: 'Show me a happy face', 'Show me a surprised face'. Draw on the mirror with dry-erase markers."
-    },
-    {
-        "title": "Letter Sound Match",
-        "description": "Write a few letters on pieces of paper (e.g., A, B, C). Ask your child to find objects in the room that start with that sound. 'A is for Apple', 'B is for Ball'."
-    },
-    {
-        "title": "Homemade Playdough",
-        "description": "Mix flour, salt, water, and oil to make simple playdough. Add food coloring for fun. Let your child knead, roll, and shape the dough. It strengthens hand muscles."
-    },
-    {
-        "title": "Color Mixing Bags",
-        "description": "Put a blob of red paint and a blob of yellow paint into a ziplock bag. Seal it tight (tape the top for safety). Let your child squish the bag to mix the colors and make orange."
-    },
-    {
-        "title": "Story Stones",
-        "description": "Paint or draw simple pictures on smooth stones (a sun, a cat, a house). Put them in a bag, pull one out, and start telling a story. Pull another to continue the story."
-    },
-    {
-        "title": "Bubble Wrap Run",
-        "description": "Tape a sheet of bubble wrap to the floor (securely). Let your child run, jump, or roll toy cars over it to hear the popping sounds. A great sensory experience."
-    },
-    {
-        "title": "Kitchen Drum Set",
-        "description": "Pull out pots, pans, and plastic bowls. Give your child wooden spoons and let them make music. experiment with different sounds from different materials."
-    },
-    {
-        "title": "Leaf rubbing",
-        "description": "Place a leaf under a piece of paper. Peel the wrapper off a crayon and rub the side of the crayon over the paper. The leaf's veins and shape will magically appear."
-    },
-    {
-        "title": "Sock Puppet Show",
-        "description": "Find an old sock. Glue or draw on eyes and a mouth. Put it on your hand and put on a show from behind the sofa. encourage your child to make their own puppet too."
-    },
-    {
-        "title": "Floating & Sinking",
-        "description": "Fill a bowl with water. Gather objects like a cork, a coin, a leaf, a rock, a spoon. Guess if each will float or sink, then drop them in to test your hypothesis."
-    },
-    {
-        "title": "Tape Road",
-        "description": "Use masking tape or painter's tape to make roads on the floor or carpet. Build a city with blocks along the road and drive toy cars around."
-    },
-    {
-        "title": "Animal Yoga",
-        "description": "Pretend to be different animals. Stretch up high like a giraffe, crouch down like a frog, downward dog like a... dog! Make the animal sounds as you move."
-    },
-    {
-        "title": "Measuring Madness",
-        "description": "Give your child a tape measure or a ruler. Measure how long their foot is, how wide the table is, or how tall their teddy bear is. Compare sizes."
-    },
-    {
-        "title": "Pompom Drop",
-        "description": "Tape empty toilet paper rolls to a wall or door at different angles. Drop a pompom or small ball through the tubes and watch it shoot out into a basket below."
-    },
-    {
-        "title": "Cotton Ball Race",
-        "description": "Place a cotton ball on the table. Give your child a straw. Have them blow through the straw to move the cotton ball across the table to a 'finish line'."
-    },
-    {
-        "title": "Name Tracing",
-        "description": "Write your child's name in large letters on a paper. Let them trace over the letters with different colored crayons (rainbow writing) or glue beans/pasta on the lines."
-    },
-    {
-        "title": "Freeze Dance",
-        "description": "Play their favorite music and dance. When you stop the music, they have to freeze like a statue. If they move, they do a silly task (like spin around)."
-    },
-    {
-        "title": "Button Snake",
-        "description": "Sew a button onto one end of a ribbon. Cut slits in small squares of felt. Show your child how to push the button through the slit to thread the felt squares onto the ribbon."
-    }
-]
+import random
 
-def get_activity_for_date(day_of_month: int):
-    """Returns an activity based on the day of the month (1-31)."""
-    # Use modulo to cycle through activities if we have fewer than 31,
-    # or just map 1-to-1 since we have ~31.
-    index = (day_of_month - 1) % len(ACTIVITIES)
-    return ACTIVITIES[index]
+# Milestone definitions for different age groups
+MILESTONES = {
+    "2": [
+        "Kicks a ball",
+        "Runs",
+        "Walks up and down stairs holding on",
+        "Eats with a spoon",
+        "Follows 2-step instructions",
+        "Says sentences with 2 to 4 words",
+        "Sorts shapes and colors",
+        "Plays make-believe",
+    ],
+    "3": [
+        "Climbs well",
+        "Runs easily",
+        "Pedals a tricycle (3-wheel bike)",
+        "Walks up and down stairs, one foot on each step",
+        "Shows affection for friends without prompting",
+        "Takes turns in games",
+        "Understands 'mine' and 'his' or 'hers'",
+        "Say first name, age, and sex",
+        "Talks well enough for strangers to understand most of the time",
+    ],
+    "4": [
+        "Hops and stands on one foot up to 2 seconds",
+        "Catches a bounced ball most of the time",
+        "Pours, cuts with supervision, and mashes their own food",
+        "Would rather play with other children than by themselves",
+        "Cooperates with other children",
+        "Retells a story or sings a song",
+        "Correctly names some colors and some numbers",
+        "Draws a person with 2 to 4 body parts",
+    ],
+    "5": [
+        "Stands on one foot for 10 seconds or longer",
+        "Hops; may be able to skip",
+        "Can do a somersault",
+        "Uses a fork and spoon and sometimes a table knife",
+        "Can use the toilet on her own",
+        "Likes to sing, dance, and act",
+        "Is aware of gender",
+        "Speaks very clearly",
+        "Tells a simple story using full sentences",
+    ]
+}
+
+# Activity repository by age group
+# Each activity has: title, description, materials, duration, benefits
+ACTIVITIES_DB = {
+    "2": [
+        {
+            "title": "Color Sorting with Toys",
+            "description": "Gather various colorful toys (blocks, cars, balls). Prepare colored bins or pieces of paper (Red, Blue, Green). Ask your child to put the red toys on the red paper, etc.",
+            "materials": "Colorful toys, colored paper or bins",
+            "duration": "15-20 mins",
+            "benefits": "Color recognition, fine motor skills, categorization"
+        },
+        {
+            "title": "Sticky Note Wall Hunt",
+            "description": "Stick colorful sticky notes on a wall at different heights (some they have to reach for, some they squat for). Ask them to 'catch' a specific color.",
+            "materials": "Post-it notes",
+            "duration": "10-15 mins",
+            "benefits": "Gross motor skills, reaching, squatting, color recognition"
+        },
+        {
+            "title": "Animal Walk",
+            "description": "Call out an animal and demonstrate how it moves. 'Waddle like a penguin', 'Hop like a bunny', 'Stomp like an elephant'. Encourage them to mimic you.",
+            "materials": "None",
+            "duration": "10 mins",
+            "benefits": "Gross motor skills, imagination, listening skills"
+        },
+        {
+            "title": "Rice Bin Sensory Play",
+            "description": "Fill a bin with dry rice. Add spoons, cups, and hidden small toys. Let them dig, pour, and scoop.",
+            "materials": "Bin, rice, scoops, cups",
+            "duration": "20-30 mins",
+            "benefits": "Sensory processing, fine motor control"
+        },
+        {
+            "title": "Pompom Push",
+            "description": "Cut small holes in the lid of a shoe box or yogurt container. Have your child push pompoms through the holes.",
+            "materials": "Box with lid, pompoms",
+            "duration": "15 mins",
+            "benefits": "Fine motor skills, pincer grasp, object permanence"
+        },
+        {
+            "title": "Big Art",
+            "description": "Tape a large piece of paper to the floor. Give them chunky crayons and let them draw freely using big arm movements.",
+            "materials": "Large paper, crayons",
+            "duration": "20 mins",
+            "benefits": "Creativity, shoulder stability, fine motor skills"
+        },
+        {
+            "title": "Pillow Road",
+            "description": "Line up pillows on the floor to make a bumpy road. Hold their hand as they walk over the pillows.",
+            "materials": "Pillows",
+            "duration": "10-15 mins",
+            "benefits": "Balance, gross motor skills"
+        },
+        {
+            "title": "Water Transfer",
+            "description": "Two bowls, one with water, one empty. Give them a sponge. Show them how to soak the sponge, move it to the empty bowl, and squeeze the water out.",
+            "materials": "Bowls, water, sponge",
+            "duration": "15-20 mins",
+            "benefits": "Hand strength, coordination, sensory play"
+        }
+    ],
+    "3": [
+        {
+            "title": "Shape Scavenger Hunt",
+            "description": "Cut out a circle, square, and triangle from paper. Hold up the circle and ask your child to find something round in the house (clock, plate). Repeat for other shapes.",
+            "materials": "Paper shapes",
+            "duration": "20 mins",
+            "benefits": "Shape recognition, observation skills"
+        },
+        {
+            "title": "Pasta Necklace",
+            "description": "Use dry penne pasta and a shoelace or yarn with a taped end. Thread the pasta to make a necklace. You can paint the pasta beforehand for extra fun.",
+            "materials": "Dry pasta, yarn/string",
+            "duration": "20-30 mins",
+            "benefits": "Fine motor skills, hand-eye coordination, focus"
+        },
+        {
+            "title": "Freeze Dance",
+            "description": "Play music and dance. Stop the music suddenly and yell 'Freeze!'. Everyone must stand still like a statue. Start again.",
+            "materials": "Music player",
+            "duration": "15 mins",
+            "benefits": "Listening skills, gross motor control, inhibition"
+        },
+        {
+            "title": "Build a Fort",
+            "description": "Use chairs, blankets, and pillows to build a fort or a tent. Read a book inside with a flashlight.",
+            "materials": "Blankets, chairs, flashlight",
+            "duration": "30+ mins",
+            "benefits": "Problem solving, imagination, bonding"
+        },
+        {
+            "title": "Simple Simon Says",
+            "description": "Play 'Simon Says' with simple body parts. 'Simon says touch your nose'. 'Touch your toes' (don't do it!).",
+            "materials": "None",
+            "duration": "10-15 mins",
+            "benefits": "Body awareness, listening, impulse control"
+        },
+        {
+            "title": "Paper Plate Masks",
+            "description": "Cut eye holes in a paper plate. Let them decorate it as a lion or monster with crayons and stuck-on paper bits.",
+            "materials": "Paper plates, glue, crayons",
+            "duration": "20 mins",
+            "benefits": "Creativity, fine motor skills"
+        },
+        {
+            "title": "Ball Rolling",
+            "description": "Sit legs apart facing each other. Roll a ball back and forth. Try to roll it fast, slow, or bounce it once.",
+            "materials": "Ball",
+            "duration": "15 mins",
+            "benefits": "Social interaction, turn-taking, hand-eye coordination"
+        },
+        {
+            "title": "Matching Socks",
+            "description": "Dump out the clean sock basket. Ask your child to find the matching pairs and roll them into balls.",
+            "materials": "Clean socks",
+            "duration": "15 mins",
+            "benefits": "Visual discrimination, helping with chores, fine motor"
+        }
+    ],
+    "4": [
+        {
+            "title": "Obstacle Course",
+            "description": "Create a complex course: Crawl under the table, jump over the cushion, walk along the tape line, throw a sock in the laundry basket.",
+            "materials": "Household items",
+            "duration": "20-30 mins",
+            "benefits": "Gross motor planning, memory, agility"
+        },
+        {
+            "title": "Name Writing Practice",
+            "description": "Write their name in highlighter or yellow marker. Have them trace over it with a pencil or dark crayon. Then try copying it below.",
+            "materials": "Paper, highlighter, pencil",
+            "duration": "15 mins",
+            "benefits": "Letter formation, fine motor control"
+        },
+        {
+            "title": "Scissor Skills",
+            "description": "Draw straight lines, zig-zags, and curves on paper strips. Have your child cut along the lines using child-safe scissors.",
+            "materials": "Paper, kid scissors",
+            "duration": "15-20 mins",
+            "benefits": "Bilateral coordination, fine motor skills"
+        },
+        {
+            "title": "Memory Card Game",
+            "description": "Use a deck of cards or matching picture cards. Place 6-8 pairs face down. Take turns flipping two over to find a match.",
+            "materials": "Cards",
+            "duration": "20 mins",
+            "benefits": "Working memory, concentration, turn-taking"
+        },
+        {
+            "title": "Story Stones",
+            "description": "Paint simple pictures on rocks (sun, house, cat). Put them in a bag. Pull one out and start a story. Pull another to continue it.",
+            "materials": "Rocks, paint/markers",
+            "duration": "20 mins",
+            "benefits": "Language development, narrative skills, creativity"
+        },
+        {
+            "title": "Baking Helper",
+            "description": "Bake cookies or muffins together. Let them measure (with help), pour, and stir the batter.",
+            "materials": "Baking ingredients, bowls",
+            "duration": "45 mins",
+            "benefits": "Math concepts (volume), following directions, patience"
+        },
+        {
+            "title": "Red Light, Green Light",
+            "description": "Play the classic game. Green light = run/walk, Red light = stop immediately. Add 'Yellow light' for slow motion.",
+            "materials": "None",
+            "duration": "15 mins",
+            "benefits": "Self-regulation, listening, gross motor skills"
+        },
+        {
+            "title": "Leaf Rubbings",
+            "description": "Collect leaves. Place them under paper and rub with the side of a crayon to reveal the texture and shape.",
+            "materials": "Leaves, paper, crayons",
+            "duration": "20 mins",
+            "benefits": "Nature appreciation, fine motor control"
+        }
+    ],
+    "5": [
+        {
+            "title": "Board Game Night",
+            "description": "Play a simple board game like Snakes and Ladders or Candy Land. Focus on following rules and handling winning/losing.",
+            "materials": "Board game",
+            "duration": "30 mins",
+            "benefits": "Social skills, counting, emotional regulation"
+        },
+        {
+            "title": "DIY Pizza",
+            "description": "Make mini pizzas on english muffins. Let them chop soft toppings (mushrooms, peppers) with a kid-safe knife and arrange them.",
+            "materials": "English muffins, sauce, cheese, toppings",
+            "duration": "30 mins",
+            "benefits": "Independence, fine motor skills, nutrition awareness"
+        },
+        {
+            "title": "Rhyming Challenge",
+            "description": "Say a word like 'Cat'. Ask them to say as many words as they can that rhyme with it (bat, hat, mat). Take turns.",
+            "materials": "None",
+            "duration": "10-15 mins",
+            "benefits": "Phonological awareness, language skills"
+        },
+        {
+            "title": "Hopscotch",
+            "description": "Draw a hopscotch grid with chalk outside. Teach them how to throw a stone and hop through the grid avoiding lines.",
+            "materials": "Chalk, stone",
+            "duration": "20 mins",
+            "benefits": "Balance, counting, gross motor coordination"
+        },
+        {
+            "title": "Learn a Phone Number",
+            "description": "Turn it into a song or game. Practice dialing it on a play phone or a real phone (unplugged or locked).",
+            "materials": "Phone toy",
+            "duration": "15 mins",
+            "benefits": "Safety, memorization, number recognition"
+        },
+        {
+            "title": "Tie Your Shoes",
+            "description": "Practice tying shoelaces. Use a cardboard shoe template with two different colored laces to make it easier to see the steps.",
+            "materials": "Shoe or practice board",
+            "duration": "15 mins",
+            "benefits": "Fine motor skills, persistence, independence"
+        },
+        {
+            "title": "Nature Journal",
+            "description": "Go for a walk. Ask them to draw what they see in a notebook (a bird, a flower) and try to label it (with help spelling).",
+            "materials": "Notebook, pencil",
+            "duration": "30 mins",
+            "benefits": "Observation, writing skills, science"
+        },
+        {
+            "title": "Pattern Making",
+            "description": "Use beads, lego bricks, or colored pasta. Start a pattern (Red-Blue-Red-Blue) and ask them to finish it. Try A-A-B or A-B-C patterns.",
+            "materials": "Small colored objects",
+            "duration": "20 mins",
+            "benefits": "Math logic, cognitive patterning, fine motor"
+        }
+    ]
+}
+
+def get_milestones(age_group):
+    return MILESTONES.get(str(age_group), [])
+
+def get_activity_for_date(day_of_month: int, age_group: str):
+    """Returns an activity based on the day of the month for a specific age group."""
+    activities = ACTIVITIES_DB.get(str(age_group), ACTIVITIES_DB["3"]) # Default to 3
+    # Cycle through activities
+    index = (day_of_month - 1) % len(activities)
+    return activities[index]
+
+def get_random_activity(age_group: str, exclude_titles=None):
+    """Returns a random activity for the age group, excluding specific titles."""
+    if exclude_titles is None:
+        exclude_titles = []
+
+    activities = ACTIVITIES_DB.get(str(age_group), ACTIVITIES_DB["3"])
+    available = [a for a in activities if a["title"] not in exclude_titles]
+
+    if not available:
+        return random.choice(activities) # Return anything if all excluded
+
+    return random.choice(available)
