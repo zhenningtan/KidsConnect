@@ -1,6 +1,7 @@
 import sqlite3
 import hashlib
 import os
+import json
 
 DB_NAME = "kids_activity.db"
 
@@ -22,6 +23,19 @@ def init_db():
         CREATE TABLE IF NOT EXISTS completions (
             username TEXT,
             date TEXT,
+            PRIMARY KEY (username, date),
+            FOREIGN KEY (username) REFERENCES users (username)
+        )
+    ''')
+
+    # Activity Overrides table
+    # Stores the specific activity assigned to a user for a specific date
+    # This handles the "Random" activity feature
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS activity_overrides (
+            username TEXT,
+            date TEXT,
+            activity_data TEXT, -- JSON string of the activity
             PRIMARY KEY (username, date),
             FOREIGN KEY (username) REFERENCES users (username)
         )
@@ -90,3 +104,31 @@ def toggle_completion(username, date_str):
     conn.commit()
     conn.close()
     return is_completed
+
+def save_activity_override(username, date_str, activity_data):
+    """Save a specific activity for a user on a date (overriding the default)."""
+    conn = sqlite3.connect(DB_NAME)
+    c = conn.cursor()
+
+    activity_json = json.dumps(activity_data)
+
+    c.execute('''
+        INSERT OR REPLACE INTO activity_overrides (username, date, activity_data)
+        VALUES (?, ?, ?)
+    ''', (username, date_str, activity_json))
+
+    conn.commit()
+    conn.close()
+
+def get_activity_override(username, date_str):
+    """Get the overridden activity for a user on a date, if any."""
+    conn = sqlite3.connect(DB_NAME)
+    c = conn.cursor()
+
+    c.execute('SELECT activity_data FROM activity_overrides WHERE username = ? AND date = ?', (username, date_str))
+    row = c.fetchone()
+    conn.close()
+
+    if row:
+        return json.loads(row[0])
+    return None
